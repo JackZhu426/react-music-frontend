@@ -1,5 +1,20 @@
 import styled from 'styled-components';
 
+export const LyricMessageWrapper = styled.div`
+  position: fixed;
+  z-index: 99;
+  bottom: 60px;
+  margin: 0 auto;
+  border-radius: 2px;
+  padding: 10px;
+  background-color: rgba(152, 201, 247, 0.5);
+  color: #130f40;
+  font-size: 16px;
+  font-weight: bold;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
 export const PlaybarWrapper = styled.div`
   position: fixed;
   z-index: 99;
@@ -30,6 +45,7 @@ export const Control = styled.div`
   .next {
     width: 28px;
     height: 28px;
+    cursor: pointer;
   }
 
   .prev {
@@ -41,6 +57,7 @@ export const Control = styled.div`
     height: 36px;
     margin: 0 8px;
     background-position: 0 ${(props) => (props.isPlaying ? '-165px' : '-204px')};
+    cursor: pointer;
   }
 
   .next {
@@ -57,6 +74,7 @@ export const PlayInfo = styled.div`
     width: 34px;
     height: 34px;
     border-radius: 5px;
+    box-sizing: border-box;
   }
 
   .info {
@@ -123,6 +141,7 @@ export const Operator = styled.div`
   .btn {
     width: 25px;
     height: 25px;
+    cursor: pointer;
   }
 
   .favor {
@@ -142,6 +161,9 @@ export const Operator = styled.div`
 
     .volume {
       background-position: -2px -248px;
+      &:hover {
+        background-position: -31px -248px;
+      }
     }
 
     .loop {
@@ -163,6 +185,10 @@ export const Operator = styled.div`
       color: #ccc;
       width: 59px;
       background-position: -42px -68px;
+
+      &:hover {
+        background-position: -42px -98px;
+      }
     }
   }
 `;

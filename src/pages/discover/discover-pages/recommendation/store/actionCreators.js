@@ -90,7 +90,6 @@ export const getRankingList = (idx) => {
         dispatch(changeSurgeRankingAction(res));
       } else if (idx === 0) {
         dispatch(changeNewRankingAction(res));
-        console.log(res);
       } else if (idx === 2) {
         dispatch(changeOriginRankingAction(res));
       }

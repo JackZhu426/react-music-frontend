@@ -1,11 +1,21 @@
 import React, { memo } from 'react';
 import { TopRankingWrapper } from './style';
 import { resizePic } from '@/utils/format-utils';
+import { getCurrentSongDetailsAction } from '../../pages/player/store/actionCreators';
+import { useDispatch } from 'react-redux';
 
 const JZTopRanking = memo((props) => {
   // props and state
-  const { info } = props;
+  const { info = [] } = props;
   const { tracks = [] } = info;
+
+  const dispatch = useDispatch();
+
+  // functions
+  const playChosenMusic = (ids) => {
+    dispatch(getCurrentSongDetailsAction(ids));
+  };
+
   return (
     <TopRankingWrapper>
       {/* 最上面: e.g. cover<img> + '飙升榜'<a> + play icon<button> + favorite icon<icon> */}
@@ -38,7 +48,12 @@ const JZTopRanking = memo((props) => {
                 {/* 歌曲名称 */}
                 <span className="name text-nowrap">{item.name}</span>
                 <div className="operate ">
-                  <button className="btn play"></button>
+                  <button
+                    className="btn play"
+                    onClick={(e) => {
+                      playChosenMusic(item.id);
+                    }}
+                  ></button>
                   <button className="btn addto"></button>
                   <button className="btn favor"></button>
                 </div>

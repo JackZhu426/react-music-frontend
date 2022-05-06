@@ -10,7 +10,7 @@ const JZHotRadio = memo(() => {
       <JZThemeHeaderSmall title="Anchor" />
       <div className="radio-list">
         {hotRadios.map((item, index) => (
-          <div className="item">
+          <div className="item" key={item.url}>
             <div className="image">
               <img src={item.picUrl} alt="" />
             </div>
